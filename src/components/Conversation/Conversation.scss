@@ -1,0 +1,60 @@
+@use "../../styles/variables.scss" as vars;
+
+.conversation {
+  height: 100vh;
+  background-color: vars.$chat-white;
+  display: flex;
+  flex-direction: column;
+
+  &__layout {
+    height: 100%;
+    background: transparent !important;
+
+    .ant-layout-header,
+    .ant-layout-content,
+    .ant-layout-footer {
+      background: vars.$chat-white !important;
+      padding: 0 !important;
+    }
+
+    .ant-layout-header {
+      height: auto !important;
+      line-height: normal !important;
+      border-bottom: 1px solid  vars.$chat-gray-200;
+    }
+
+    .ant-layout-footer {
+      border-top: 1px solid  vars.$chat-gray-200;
+    }
+  }
+
+  &__header {
+    flex-shrink: 0;
+    border-bottom: 1px solid  vars.$chat-gray-200;
+    background-color: vars.$chat-white;
+    z-index: 2;
+  }
+
+  &__content {
+    flex: 1;
+    overflow: hidden;
+    background-color: vars.$chat-white;
+    position: relative;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    padding: vars.$spacing-lg !important;
+    background-color: vars.$chat-white;
+    border-top: 1px solid  vars.$chat-gray-200;
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .conversation {
+    &__footer {
+      padding: vars.$spacing-md !important;
+    }
+  }
+}

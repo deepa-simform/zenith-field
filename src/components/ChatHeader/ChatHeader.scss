@@ -1,0 +1,150 @@
+@use "../../styles/variables.scss" as vars;
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$spacing-md  vars.$spacing-lg;
+  background-color: vars.$chat-white;
+  border-bottom: 1px solid  vars.$chat-gray-200;
+  height: vars.$header-height;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: vars.$spacing-md;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__back-btn {
+    display: none;
+    padding: vars.$spacing-xs !important;
+    border-radius: vars.$border-radius-md !important;
+    color: vars.$chat-black !important;
+    transition: background-color  vars.$transition-fast;
+
+    &:hover {
+      background-color: vars.$chat-gray-100 !important;
+    }
+
+    .anticon {
+      font-size: vars.$spacing-lg;
+    }
+
+    @media (max-width: vars.$mobile) {
+      display: inline-flex;
+    }
+  }
+
+  &__avatar-link {
+    display: flex;
+    cursor: pointer;
+    border-radius: vars.$border-radius-full;
+    transition: opacity  vars.$transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__avatar {
+    background-color: vars.$chat-gray-100 !important;
+    width: vars.$avatar-size-sm !important;
+    height: vars.$avatar-size-sm !important;
+    border-radius: vars.$border-radius-full !important;
+    flex-shrink: 0;
+
+    .ant-avatar-string {
+      font-size: 20px;
+      line-height: vars.$avatar-size-sm;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 0;
+    flex: 1;
+  }
+
+  &__name {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-medium !important;
+    color: vars.$chat-black !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__status {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-normal !important;
+    color: vars.$chat-gray-400 !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    @media (max-width: vars.$mobile) {
+      gap: vars.$spacing-md;
+    }
+  }
+
+  &__action-btn {
+    color: vars.$chat-black !important;
+    padding: vars.$spacing-xs !important;
+    border-radius: vars.$border-radius-md !important;
+    transition: background-color  vars.$transition-fast;
+
+    &:hover {
+      background-color: vars.$chat-gray-100 !important;
+    }
+
+    .anticon {
+      font-size: vars.$spacing-lg;
+    }
+  }
+
+  &__profile-btn {
+    display: none;
+
+    @media (max-width: vars.$tablet) {
+      display: inline-flex;
+    }
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .chat-header {
+    padding: vars.$spacing-md;
+    height: auto;
+    min-height: 60px;
+
+    &__info {
+      gap: 2px;
+    }
+
+    &__name {
+      font-size: 14px !important;
+    }
+
+    &__status {
+      font-size: 12px !important;
+    }
+  }
+}

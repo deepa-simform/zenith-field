@@ -1,0 +1,132 @@
+// Global SCSS Variables for Chat Application
+// Note: This file uses CSS custom properties for theme switching
+// and SCSS variables for compile-time usage
+
+// Light Theme Variables
+:root {
+  // Chat App Colors - Light Theme
+  --chat-background: #f5f5f5;
+  --chat-white: #ffffff;
+  --chat-black: #000000;
+  --chat-gray-100: #f7f7f7;
+  --chat-gray-200: #e0e0e0;
+  --chat-gray-300: #828282;
+  --chat-gray-400: #454545;
+
+  // Typography
+  --font-family-inter:
+    "Inter", -apple-system, "Roboto", "Helvetica", sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+
+  // Spacing
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  // Border Radius
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-full: 1000px;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  // Layout
+  --sidebar-width: 400px;
+  --profile-width: 256px;
+  --header-height: 80px;
+  --input-height: 40px;
+  --avatar-size-sm: 48px;
+  --avatar-size-md: 64px;
+  --avatar-size-lg: 128px;
+
+  // Transitions
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+// Dark Theme Variables
+[data-theme="dark"] {
+  --chat-background: #1a1a1a;
+  --chat-white: #2d2d2d;
+  --chat-black: #ffffff;
+  --chat-gray-100: #2d2d2d;
+  --chat-gray-200: #404040;
+  --chat-gray-300: #a0a0a0;
+  --chat-gray-400: #d0d0d0;
+}
+
+// SCSS Variables for easier usage
+$chat-background: var(--chat-background);
+$chat-white: var(--chat-white);
+$chat-black: var(--chat-black);
+$chat-gray-100: var(--chat-gray-100);
+$chat-gray-200: var(--chat-gray-200);
+$chat-gray-300: var(--chat-gray-300);
+$chat-gray-400: var(--chat-gray-400);
+
+$font-family-inter: var(--font-family-inter);
+$font-size-base: var(--font-size-base);
+$font-size-lg: var(--font-size-lg);
+$font-weight-normal: var(--font-weight-normal);
+$font-weight-medium: var(--font-weight-medium);
+$font-weight-semibold: var(--font-weight-semibold);
+$font-weight-bold: var(--font-weight-bold);
+$line-height-base: var(--line-height-base);
+
+// SCSS variables for calculations (not CSS custom properties)
+$spacing-xs-val: 4px;
+$spacing-sm-val: 8px;
+$spacing-md-val: 16px;
+$spacing-lg-val: 24px;
+$spacing-xl-val: 32px;
+$spacing-2xl-val: 48px;
+
+// CSS custom property references for runtime usage
+$spacing-xs: var(--spacing-xs);
+$spacing-sm: var(--spacing-sm);
+$spacing-md: var(--spacing-md);
+$spacing-lg: var(--spacing-lg);
+$spacing-xl: var(--spacing-xl);
+$spacing-2xl: var(--spacing-2xl);
+
+$border-radius-sm: var(--border-radius-sm);
+$border-radius-md: var(--border-radius-md);
+$border-radius-lg: var(--border-radius-lg);
+$border-radius-xl: var(--border-radius-xl);
+$border-radius-full: var(--border-radius-full);
+
+$shadow-sm: var(--shadow-sm);
+$shadow-md: var(--shadow-md);
+$shadow-lg: var(--shadow-lg);
+
+$sidebar-width: var(--sidebar-width);
+$profile-width: var(--profile-width);
+$header-height: var(--header-height);
+$input-height: var(--input-height);
+$avatar-size-sm: var(--avatar-size-sm);
+$avatar-size-md: var(--avatar-size-md);
+$avatar-size-lg: var(--avatar-size-lg);
+
+$transition-fast: var(--transition-fast);
+$transition-normal: var(--transition-normal);
+$transition-slow: var(--transition-slow);
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1440px;

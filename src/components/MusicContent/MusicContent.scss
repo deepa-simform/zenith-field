@@ -1,0 +1,114 @@
+@use "../../styles/variables.scss" as vars;
+
+.music-content {
+  height: 100vh;
+  background-color: vars.$chat-white;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &__main {
+    padding: 0  vars.$spacing-xl;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__section {
+    margin-bottom: 80px;
+
+    &:first-of-type {
+      margin-top: vars.$spacing-xl;
+    }
+  }
+
+  &__section-header {
+    margin-bottom: vars.$spacing-xl;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-sm;
+  }
+
+  &__section-title {
+    font-family: vars.$font-family-inter !important;
+    font-size: 34px !important;
+    font-weight: vars.$font-weight-semibold !important;
+    color: vars.$chat-black !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.68px !important;
+    margin: 0 !important;
+  }
+
+  &__section-subtitle {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-normal !important;
+    color: vars.$chat-gray-400 !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .music-content {
+    &__main {
+      padding: 0  vars.$spacing-md;
+    }
+
+    &__section {
+      margin-bottom: 60px;
+
+      &:first-of-type {
+        margin-top: vars.$spacing-lg;
+      }
+    }
+
+    &__section-header {
+      margin-bottom: vars.$spacing-lg;
+    }
+
+    &__section-title {
+      font-size: 28px !important;
+    }
+
+    &__section-subtitle {
+      font-size: 14px !important;
+    }
+  }
+}
+
+// Tablet specific styles
+@media (min-width: vars.$mobile) and (max-width: vars.$tablet) {
+  .music-content {
+    &__main {
+      padding: 0  vars.$spacing-lg;
+    }
+
+    &__section-title {
+      font-size: 30px !important;
+    }
+  }
+}
+
+// Scrollbar styles
+.music-content {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: vars.$chat-gray-100;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: vars.$chat-gray-200;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: vars.$chat-gray-300;
+  }
+}

@@ -1,0 +1,48 @@
+@use "../../styles/variables.scss" as vars;
+
+// Theme Provider Styles
+.theme-provider {
+  height: 100vh;
+  width: 100vw;
+  font-family: vars.$font-family-inter;
+  transition:
+    background-color  vars.$transition-normal,
+    color  vars.$transition-normal;
+}
+
+// Global theme-aware styles
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: vars.$font-family-inter;
+  font-size: vars.$font-size-base;
+  line-height: vars.$line-height-base;
+  background-color: vars.$chat-background;
+  color: vars.$chat-black;
+  transition:
+    background-color  vars.$transition-normal,
+    color  vars.$transition-normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: vars.$chat-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: vars.$chat-gray-200;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: vars.$chat-gray-300;
+}

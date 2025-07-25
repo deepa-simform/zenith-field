@@ -1,0 +1,131 @@
+@use "../../styles/variables.scss" as vars;
+
+.music-sidebar {
+  height: 100vh;
+  background-color: vars.$chat-white;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid  vars.$chat-gray-200;
+  padding: 0;
+
+  &__header {
+    padding: vars.$spacing-lg;
+    border-bottom: none;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-lg !important;
+    font-weight: vars.$font-weight-semibold !important;
+    color: vars.$chat-black !important;
+    margin-bottom: 0 !important;
+    letter-spacing: -0.2px;
+    line-height: vars.$line-height-base !important;
+  }
+
+  &__section {
+    padding: 0  vars.$spacing-sm;
+    margin-bottom: vars.$spacing-lg;
+
+    &:first-of-type {
+      margin-top: vars.$spacing-lg;
+    }
+  }
+
+  &__section-title {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-semibold !important;
+    color: vars.$chat-black !important;
+    display: block;
+    padding: 0  vars.$spacing-md  vars.$spacing-sm;
+    margin-bottom: vars.$spacing-xs;
+  }
+
+  &__menu {
+    background: transparent !important;
+    border: none !important;
+
+    .ant-menu-item {
+      height: 40px !important;
+      line-height: 40px !important;
+      padding: 0  vars.$spacing-md !important;
+      margin: 0 0  vars.$spacing-xs 0 !important;
+      border-radius: vars.$border-radius-md !important;
+      display: flex !important;
+      align-items: center !important;
+      transition: background-color  vars.$transition-fast;
+
+      &:hover {
+        background-color: vars.$chat-gray-100 !important;
+        color: vars.$chat-black !important;
+      }
+
+      &.ant-menu-item-selected {
+        background-color: vars.$chat-gray-100 !important;
+        color: vars.$chat-black !important;
+
+        &::after {
+          display: none !important;
+        }
+      }
+
+      .ant-menu-title-content {
+        font-family: vars.$font-family-inter !important;
+        font-size: vars.$font-size-base !important;
+        font-weight: vars.$font-weight-medium !important;
+        color: vars.$chat-black !important;
+        margin-left: vars.$spacing-md !important;
+      }
+
+      .anticon {
+        font-size: vars.$spacing-lg !important;
+        color: vars.$chat-black !important;
+        width: vars.$spacing-lg !important;
+        height: vars.$spacing-lg !important;
+        line-height: vars.$spacing-lg !important;
+      }
+    }
+
+    // Active state for Home
+    .music-sidebar__menu-item--active {
+      background-color: vars.$chat-gray-100 !important;
+      color: vars.$chat-black !important;
+    }
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .music-sidebar {
+    width: 100vw;
+    z-index: 100;
+
+    &__header {
+      padding: vars.$spacing-md;
+    }
+
+    &__title {
+      font-size: 18px !important;
+    }
+
+    &__section {
+      padding: 0  vars.$spacing-xs;
+    }
+  }
+}
+
+// Override Ant Design Menu styles
+.ant-menu {
+  .ant-menu-item {
+    &:hover {
+      color: vars.$chat-black !important;
+    }
+
+    &.ant-menu-item-selected {
+      color: vars.$chat-black !important;
+      background-color: vars.$chat-gray-100 !important;
+    }
+  }
+}

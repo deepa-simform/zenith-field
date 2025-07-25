@@ -1,0 +1,157 @@
+@use "../../styles/variables.scss" as vars;
+
+.playlist-grid {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: vars.$spacing-xl;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1024px;
+
+  &__card {
+    display: flex;
+    width: 232px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform  vars.$transition-fast;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &__cover {
+    display: flex;
+    height: 232px;
+    padding: vars.$spacing-md;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: vars.$border-radius-md;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__cover-title {
+    width: 200px;
+    color: vars.$chat-white;
+    font-family: vars.$font-family-inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: vars.$font-weight-semibold;
+    line-height: 1;
+    letter-spacing: -1.28px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 2px;
+  }
+
+  &__title {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-lg !important;
+    font-weight: vars.$font-weight-medium !important;
+    color: vars.$chat-black !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    align-self: stretch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-normal !important;
+    color: vars.$chat-gray-400 !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    align-self: stretch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .playlist-grid {
+    gap: vars.$spacing-lg;
+    justify-content: center;
+
+    &__card {
+      width: 180px;
+    }
+
+    &__cover {
+      height: 180px;
+      padding: 12px;
+    }
+
+    &__cover-title {
+      font-size: 24px;
+      width: 156px;
+    }
+
+    &__title {
+      font-size: 18px !important;
+    }
+
+    &__description {
+      font-size: 14px !important;
+    }
+  }
+}
+
+// Tablet specific styles
+@media (min-width: vars.$mobile) and (max-width: vars.$tablet) {
+  .playlist-grid {
+    gap: vars.$spacing-lg;
+
+    &__card {
+      width: 200px;
+    }
+
+    &__cover {
+      height: 200px;
+    }
+
+    &__cover-title {
+      font-size: 28px;
+      width: 172px;
+    }
+  }
+}
+
+// Large screens
+@media (min-width: vars.$desktop) {
+  .playlist-grid {
+    &__card {
+      width: 248px;
+    }
+
+    &__cover {
+      height: 248px;
+    }
+
+    &__cover-title {
+      width: 216px;
+    }
+  }
+}

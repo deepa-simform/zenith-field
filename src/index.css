@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "./styles/variables.scss";
+
+/* Global styles for the chat application */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family:
+    "Inter",
+    -apple-system,
+    "Roboto",
+    "Helvetica",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--chat-background);
+  color: var(--chat-black);
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--chat-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--chat-gray-200);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--chat-gray-300);
+}
+
+/* Ant Design global overrides */
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-layout-sider {
+  background: var(--chat-white) !important;
+}
+
+.ant-layout-content {
+  background: var(--chat-white) !important;
+}
+
+/* Remove default Ant Design focus outlines for better design consistency */
+.ant-input:focus,
+.ant-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

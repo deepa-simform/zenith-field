@@ -1,0 +1,132 @@
+@use "../../styles/variables.scss" as vars;
+
+.album-grid {
+  display: inline-flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: vars.$spacing-xl;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1024px;
+
+  &__card {
+    display: flex;
+    width: 144px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform  vars.$transition-fast;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &__cover {
+    height: 144px;
+    align-self: stretch;
+    border-radius: vars.$border-radius-md;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 2px;
+  }
+
+  &__artist {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-lg !important;
+    font-weight: vars.$font-weight-medium !important;
+    color: vars.$chat-black !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    align-self: stretch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  &__genre {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-normal !important;
+    color: vars.$chat-gray-400 !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    align-self: stretch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .album-grid {
+    gap: vars.$spacing-lg;
+    justify-content: center;
+
+    &__card {
+      width: 120px;
+    }
+
+    &__cover {
+      height: 120px;
+    }
+
+    &__artist {
+      font-size: 16px !important;
+    }
+
+    &__genre {
+      font-size: 14px !important;
+    }
+  }
+}
+
+// Tablet specific styles
+@media (min-width: vars.$mobile) and (max-width: vars.$tablet) {
+  .album-grid {
+    gap: vars.$spacing-lg;
+
+    &__card {
+      width: 130px;
+    }
+
+    &__cover {
+      height: 130px;
+    }
+
+    &__artist {
+      font-size: 18px !important;
+    }
+  }
+}
+
+// Large screens
+@media (min-width: vars.$desktop) {
+  .album-grid {
+    &__card {
+      width: 160px;
+    }
+
+    &__cover {
+      height: 160px;
+    }
+  }
+}

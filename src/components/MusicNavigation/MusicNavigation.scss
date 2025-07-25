@@ -1,0 +1,110 @@
+@use "../../styles/variables.scss" as vars;
+
+.music-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$spacing-lg  vars.$spacing-xl;
+  background-color: vars.$chat-white;
+  border-bottom: none;
+  height: 88px;
+
+  &__segmented {
+    display: flex;
+    align-items: center;
+  }
+
+  &__tab-container {
+    display: flex;
+    padding: 4px;
+    background-color: vars.$chat-gray-100;
+    border-radius: vars.$border-radius-md;
+    gap: 0;
+  }
+
+  &__tab {
+    display: flex;
+    height: 32px;
+    padding: 0 12px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all  vars.$transition-fast;
+    min-width: 45px;
+
+    &--active {
+      background-color: vars.$chat-white;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    }
+
+    &:hover:not(&--active) {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__tab-text {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-medium !important;
+    color: vars.$chat-black !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    white-space: nowrap;
+  }
+
+  &__cta {
+    background-color: vars.$chat-black !important;
+    border-color: vars.$chat-black !important;
+    border-radius: vars.$border-radius-md !important;
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-medium !important;
+    height: 40px !important;
+    padding: 0  vars.$spacing-md !important;
+    line-height: vars.$line-height-base !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: vars.$chat-gray-400 !important;
+      border-color: vars.$chat-gray-400 !important;
+    }
+
+    &:focus {
+      background-color: vars.$chat-black !important;
+      border-color: vars.$chat-black !important;
+    }
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .music-navigation {
+    padding: vars.$spacing-md;
+    height: auto;
+    flex-direction: column;
+    gap: vars.$spacing-md;
+    align-items: stretch;
+
+    &__segmented {
+      justify-content: center;
+    }
+
+    &__cta {
+      width: 100% !important;
+    }
+  }
+}
+
+// Tablet specific styles
+@media (min-width: vars.$mobile) and (max-width: vars.$tablet) {
+  .music-navigation {
+    padding: vars.$spacing-md  vars.$spacing-lg;
+
+    &__cta {
+      min-width: 120px;
+    }
+  }
+}

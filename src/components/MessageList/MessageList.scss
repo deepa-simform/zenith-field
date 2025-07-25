@@ -1,0 +1,85 @@
+@use "../../styles/variables.scss" as vars;
+
+.message-list {
+  height: 100%;
+  background-color: vars.$chat-white;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &__content {
+    padding: vars.$spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xl;
+    min-height: 100%;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-sm;
+    max-width: 100%;
+
+    &--own {
+      align-items: flex-end;
+    }
+
+    &--other {
+      align-items: flex-start;
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: vars.$spacing-md 0;
+  }
+
+  &__date-text {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-normal !important;
+    color: vars.$chat-gray-300 !important;
+    line-height: vars.$line-height-base !important;
+    text-align: center;
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .message-list {
+    &__content {
+      padding: vars.$spacing-md;
+      gap: vars.$spacing-lg;
+    }
+
+    &__date {
+      margin: vars.$spacing-sm 0;
+    }
+
+    &__date-text {
+      font-size: 14px !important;
+    }
+  }
+}
+
+// Ensure proper scrolling
+.message-list {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: vars.$chat-gray-100;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: vars.$chat-gray-200;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: vars.$chat-gray-300;
+  }
+}

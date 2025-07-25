@@ -1,0 +1,98 @@
+@use "../../styles/variables.scss" as vars;
+
+.message-bubble {
+  max-width: 480px;
+  padding: vars.$spacing-md  vars.$spacing-md;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  word-break: break-word;
+  position: relative;
+
+  &--own {
+    background-color: vars.$chat-black;
+    border-radius: vars.$border-radius-lg  vars.$border-radius-lg  vars.$border-radius-sm
+       vars.$border-radius-lg;
+    margin-left: auto;
+
+    .message-bubble__text {
+      color: vars.$chat-white !important;
+    }
+
+    .message-bubble__timestamp {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+  }
+
+  &--other {
+    background-color: vars.$chat-gray-200;
+    border-radius: vars.$border-radius-xl  vars.$border-radius-lg  vars.$border-radius-lg
+       vars.$border-radius-sm;
+    margin-right: auto;
+
+    .message-bubble__text {
+      color: vars.$chat-black !important;
+    }
+
+    .message-bubble__timestamp {
+      color: vars.$chat-gray-300 !important;
+    }
+  }
+
+  &__text {
+    font-family: vars.$font-family-inter !important;
+    font-size: vars.$font-size-base !important;
+    font-weight: vars.$font-weight-medium !important;
+    line-height: vars.$line-height-base !important;
+    margin: 0 !important;
+    white-space: pre-wrap;
+  }
+
+  &__timestamp {
+    font-family: vars.$font-family-inter !important;
+    font-size: 12px !important;
+    font-weight: vars.$font-weight-normal !important;
+    line-height: 1.4 !important;
+    margin-top: vars.$spacing-xs !important;
+    text-align: right;
+  }
+}
+
+// Mobile specific styles
+@media (max-width: vars.$mobile) {
+  .message-bubble {
+    max-width: calc(100vw - #{vars.$spacing-xl-val * 2});
+    padding: vars.$spacing-sm  vars.$spacing-md;
+
+    &__text {
+      font-size: 14px !important;
+    }
+
+    &__timestamp {
+      font-size: 11px !important;
+    }
+  }
+}
+
+// Tablet specific styles
+@media (min-width: vars.$mobile) and (max-width: vars.$tablet) {
+  .message-bubble {
+    max-width: 60%;
+  }
+}
+
+// Animation for new messages
+.message-bubble {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

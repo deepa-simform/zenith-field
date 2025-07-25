@@ -1,0 +1,138 @@
+@use "../../styles/variables.scss" as vars;
+
+.chat-layout {
+  height: 100vh;
+  width: 100vw;
+  background-color: vars.$chat-background;
+  overflow: hidden;
+
+  &__container {
+    height: 100%;
+    background: transparent !important;
+
+    .ant-layout-sider {
+      background: vars.$chat-white !important;
+      border-right: 1px solid  vars.$chat-gray-200;
+      transition: all  vars.$transition-normal;
+
+      &.ant-layout-sider-collapsed {
+        min-width: 0 !important;
+        max-width: 0 !important;
+        width: 0 !important;
+      }
+    }
+
+    .ant-layout-content {
+      background: vars.$chat-white !important;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  &__sidebar {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &--left {
+      border-right: 1px solid  vars.$chat-gray-200;
+    }
+
+    &--right {
+      border-left: 1px solid  vars.$chat-gray-200;
+    }
+
+    // Mobile and tablet visibility
+    @media (max-width: vars.$mobile) {
+      &--visible {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        z-index: 10;
+      }
+
+      &--hidden {
+        display: none;
+      }
+
+      &--right {
+        &.chat-layout__sidebar--visible {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+
+    @media (min-width: vars.$mobile) and (max-width: vars.$tablet) {
+      &--right {
+        &.chat-layout__sidebar--visible {
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 10;
+          box-shadow: vars.$shadow-lg;
+        }
+
+        &.chat-layout__sidebar--hidden {
+          display: none;
+        }
+      }
+    }
+
+    @media (min-width: vars.$tablet) {
+      &--visible,
+      &--hidden {
+        display: block;
+        position: static;
+      }
+
+      &--right {
+        &.chat-layout__sidebar--hidden {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    height: 100vh;
+    overflow: hidden;
+
+    // Mobile visibility
+    @media (max-width: vars.$mobile) {
+      &--visible {
+        display: block;
+      }
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    @media (min-width: vars.$mobile) {
+      &--visible,
+      &--hidden {
+        display: block;
+      }
+    }
+  }
+}
+
+// Ensure proper stacking and transitions
+.ant-layout-sider-trigger {
+  display: none !important;
+}
+
+// Override Ant Design Layout styles
+.ant-layout {
+  background: transparent !important;
+
+  .ant-layout-sider-children {
+    height: 100%;
+    overflow: hidden;
+  }
+}
